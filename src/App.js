@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+import AddTodo from "./componets/AddTodo";
+import TodoList from "./componets/TodoList";
+import TotalCompletedTask from "./componets/TotalCompletedTask";
+import {Card, Row} from "antd";
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <div className='main-page'>
+      <Row justify="center">
+      <Card title="To do list" style={{width: 600
+      }}>
+      <AddTodo/>
+      <TodoList/>
+      <TotalCompletedTask/>
+      </Card>
+      </Row>
+
+     </div>
   );
 }
 
