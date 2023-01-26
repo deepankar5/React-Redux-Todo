@@ -1,6 +1,13 @@
+import { useSelector } from "react-redux"
+
 const TotalCompletedTask = () => {
 
-    const completedTask = 2
+    const todos = useSelector((state) => state.todos)
+    const completedTask = todos.reduce((acc, cur) => {
+        if(cur.completed === true){
+            return acc + 1
+        }else return acc
+    },0)
     return(
         <div>
             <h3>Total Tasks completes: {completedTask}</h3>

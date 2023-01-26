@@ -1,11 +1,14 @@
 import {Input, Button,Form} from "antd";
-import {nanoid} from "nanoid";
+import { useDispatch } from "react-redux";
+import {createTodoAsync } from "../redux/todoSlice";
 
 const AddTodo = () => {
     const [form] = Form.useForm();
 
+    const dispatch = useDispatch()
+
     const handleSubmit = (value) => {
-        console.log({id: nanoid(),completed: false,...value});
+        dispatch(createTodoAsync(value))
         form.resetFields();
     }
 
@@ -15,7 +18,7 @@ const AddTodo = () => {
         onFinish={handleSubmit}  initialValues={{
             todo: ''
           }}>
-            <Form.Item name= "todo">
+            <Form.Item name= "title">
             <Input placeholder="Add Notes...."/>
             </Form.Item>
             <Button type= "primary" htmlType="submit">Add Note</Button>
